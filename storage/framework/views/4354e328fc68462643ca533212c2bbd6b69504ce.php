@@ -36,29 +36,20 @@
         <div class="min-h-screen bg-gray-100">
             <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('navigation-menu')->html();
-} elseif ($_instance->childHasBeenRendered('J8mktcP')) {
-    $componentId = $_instance->getRenderedChildComponentId('J8mktcP');
-    $componentTag = $_instance->getRenderedChildComponentTagName('J8mktcP');
+    $html = \Livewire\Livewire::mount('navigation')->html();
+} elseif ($_instance->childHasBeenRendered('Qytkigo')) {
+    $componentId = $_instance->getRenderedChildComponentId('Qytkigo');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Qytkigo');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('J8mktcP');
+    $_instance->preserveRenderedChild('Qytkigo');
 } else {
-    $response = \Livewire\Livewire::mount('navigation-menu');
+    $response = \Livewire\Livewire::mount('navigation');
     $html = $response->html();
-    $_instance->logRenderedChild('J8mktcP', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Qytkigo', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
 
-            <!-- Page Heading -->
-            <?php if(isset($header)): ?>
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        <?php echo e($header); ?>
-
-                    </div>
-                </header>
-            <?php endif; ?>
 
             <!-- Page Content -->
             <main>
