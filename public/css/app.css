@@ -456,7 +456,7 @@ button,
  * as it triggers the better focus styles even for links, which still use a dotted
  * outline in Firefox by default.
  */
- 
+
 :-moz-focusring {
 	outline: auto;
 }
@@ -523,14 +523,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- * 
+ *
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- * 
+ *
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 
@@ -1084,6 +1084,10 @@ select {
 	bottom: 0px;
 	left: 0px;
 }
+.inset-y-0 {
+	top: 0px;
+	bottom: 0px;
+}
 .left-0 {
 	left: 0px;
 }
@@ -1220,6 +1224,9 @@ select {
 .h-20 {
 	height: 5rem;
 }
+.h-80	{
+    height: 20rem;
+}
 .min-h-screen {
 	min-height: 100vh;
 }
@@ -1285,6 +1292,9 @@ select {
 }
 .flex-shrink-0 {
 	flex-shrink: 0;
+}
+.flex-col	{
+    flex-direction: column;
 }
 .origin-top-left {
 	transform-origin: top left;
@@ -1361,6 +1371,19 @@ select {
 .gap-1 {
 	gap: 0.25rem;
 }
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.col-span-2	{
+    grid-column: span 2 / span 2;
+}
+
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1375,6 +1398,11 @@ select {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(1rem * var(--tw-space-x-reverse));
+	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-hidden {
 	overflow: hidden;
@@ -1479,6 +1507,38 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(79, 70, 229, var(--tw-bg-opacity));
 }
+.bg-red-500	{
+    --tw-bg-opacity: 1;
+    background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+}
+.bg-yellow-500	{
+    --tw-bg-opacity: 1;
+    background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+}
+.bg-blue-500	{
+    --tw-bg-opacity: 1;
+    background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+}
+.bg-violet-500	{
+    --tw-bg-opacity: 1;
+    background-color: rgba(68, 0, 158, var(--tw-bg-opacity));
+}
+.bg-orange-500	{
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 165, 0, var(--tw-bg-opacity));
+}
+.bg-green-500	{
+    --tw-bg-opacity: 1;
+    background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+}
+.bg-brown-500	{
+    --tw-bg-opacity: 1;
+    background-color: rgba(80, 27, 0, var(--tw-bg-opacity));
+}
+.bg-red-500	{
+    --tw-bg-opacity: 1;
+    background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+}
 .bg-red-600 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
@@ -1503,6 +1563,14 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
+.bg-gray-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
+}
+.bg-gray-900 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
 }
@@ -1525,6 +1593,9 @@ select {
 .p-6 {
 	padding: 1.5rem;
 }
+.p-1 {
+	padding: 0.25rem;
+}
 .px-4 {
 	padding-left: 1rem;
 	padding-right: 1rem;
@@ -1544,6 +1615,9 @@ select {
 .px-6 {
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
+}
+.p-8	{
+    padding: 2rem;
 }
 .py-4 {
 	padding-top: 1rem;
@@ -1611,6 +1685,9 @@ select {
 .pb-1 {
 	padding-bottom: 0.25rem;
 }
+.pr-2 {
+	padding-right: 0.5rem;
+}
 .pt-8 {
 	padding-top: 2rem;
 }
@@ -1628,6 +1705,9 @@ select {
 }
 .font-mono {
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.font-bold	{
+    font-weight: 700;
 }
 .text-sm {
 	font-size: 0.875rem;
@@ -1653,6 +1733,11 @@ select {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
 }
+
+.text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
 .font-medium {
 	font-weight: 500;
 }
@@ -1667,6 +1752,9 @@ select {
 }
 .leading-7 {
 	line-height: 1.75rem;
+}
+.leading-8	{
+    line-height: 2rem;
 }
 .leading-tight {
 	line-height: 1.25;
@@ -1737,13 +1825,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
-.text-gray-200 {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
 .text-gray-300 {
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
+.text-gray-200 {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
@@ -1827,6 +1915,9 @@ select {
 .duration-300 {
 	transition-duration: 300ms;
 }
+.duration-100 {
+	transition-duration: 100ms;
+}
 .ease-in-out {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1835,6 +1926,25 @@ select {
 }
 .ease-in {
 	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 80rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+@media(min-width:640px){
+    .container {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+}
+@media(min-width:1024px){
+    .container {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
 }
 .hover\:border-gray-300:hover {
 	--tw-border-opacity: 1;
@@ -1883,6 +1993,10 @@ select {
 .hover\:text-gray-900:hover {
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
+}
+.hover\:text-white:hover {
+	--tw-text-opacity: 1;
+	color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 .focus\:z-10:focus {
 	z-index: 10;
@@ -1956,6 +2070,14 @@ select {
 	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
 	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
+.focus\:ring-2:focus {
+	--tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+	--tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+	box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+.focus\:ring-inset:focus {
+	--tw-ring-inset: inset;
+}
 .focus\:ring-gray-300:focus {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(209, 213, 219, var(--tw-ring-opacity));
@@ -1972,8 +2094,18 @@ select {
 	--tw-ring-opacity: 1;
 	--tw-ring-color: rgba(191, 219, 254, var(--tw-ring-opacity));
 }
+.focus\:ring-white:focus {
+	--tw-ring-opacity: 1;
+	--tw-ring-color: rgba(255, 255, 255, var(--tw-ring-opacity));
+}
 .focus\:ring-opacity-50:focus {
 	--tw-ring-opacity: 0.5;
+}
+.focus\:ring-offset-2:focus {
+	--tw-ring-offset-width: 2px;
+}
+.focus\:ring-offset-gray-800:focus {
+	--tw-ring-offset-color: #1f2937;
 }
 .active\:bg-gray-100:active {
 	--tw-bg-opacity: 1;
@@ -2007,6 +2139,17 @@ select {
 	opacity: 0.25;
 }
 @media (min-width: 640px) {
+
+	.sm\:static {
+		position: static;
+	}
+
+	.sm\:inset-auto {
+		top: auto;
+		right: auto;
+		bottom: auto;
+		left: auto;
+	}
 
 	.sm\:col-span-4 {
 		grid-column: span 4 / span 4;
@@ -2132,6 +2275,10 @@ select {
 		align-items: center;
 	}
 
+	.sm\:items-stretch {
+		align-items: stretch;
+	}
+
 	.sm\:justify-start {
 		justify-content: flex-start;
 	}
@@ -2195,6 +2342,10 @@ select {
 		padding-bottom: 1rem;
 	}
 
+	.sm\:pr-0 {
+		padding-right: 0px;
+	}
+
 	.sm\:text-left {
 		text-align: left;
 	}
@@ -2212,6 +2363,10 @@ select {
 	.md\:col-span-1 {
 		grid-column: span 1 / span 1;
 	}
+
+    .md\:col-span-2	{
+        grid-column: span 2 / span 2;
+    }
 
 	.md\:mt-0 {
 		margin-top: 0px;
@@ -2247,9 +2402,29 @@ select {
 		grid-column: span 4 / span 4;
 	}
 
+	.lg\:block {
+		display: block;
+	}
+
+	.lg\:hidden {
+		display: none;
+	}
+
 	.lg\:px-8 {
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
+
+    .lg\:grid-cols-1	{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .lg\:grid-cols-2	{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lg\:grid-cols-3	{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
