@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
         <h1 class="text-4xl font-bold text-gray-600">{{ $post->name }}</h1>
-        <div class="text-lg text-gray-500 mb-2">
+        <div class="text-lg text-gray-500 mb-2" style="margin-bottom: 0.5rem;">
             {{ $post->extract }}
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
