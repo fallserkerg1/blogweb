@@ -15,7 +15,7 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </div>
                         <h1 class="text-4xl text-white leading-8 font-bold">
-                            <a href="">
+                            <a href="<?php echo e(route('posts.show', $post)); ?>">
                                 <?php echo e($post->name); ?>
 
                             </a>
