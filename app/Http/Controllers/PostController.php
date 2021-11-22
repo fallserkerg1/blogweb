@@ -48,6 +48,6 @@ class PostController extends Controller
                     ->latest('id')
                     ->paginate(4);
 
-        return view('posts.tag', compact('posts', 'tag'));
+        return view('posts.etiqueta', compact('posts', 'tag'));
     }
 }

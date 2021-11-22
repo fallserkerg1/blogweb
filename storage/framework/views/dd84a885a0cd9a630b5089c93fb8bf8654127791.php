@@ -7,7 +7,7 @@
 <?php $__env->startSection('content'); ?>
 
 <?php if(session('info')): ?>
-    <div class="alert alert-primary">
+    <div class="alert alert-success">
         <strong><?php echo e(session('info')); ?></strong>
     </div>
 

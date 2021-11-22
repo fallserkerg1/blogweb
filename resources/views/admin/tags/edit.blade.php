@@ -3,7 +3,7 @@
 @section('title', 'Administrator')
 
 @section('content_header')
-    <h1>Edit Category</h1>
+    <h1>Edit Tags</h1>
 @stop
 
 @section('content')
@@ -14,28 +14,36 @@
     </div>
 
 @endif
-
-<div class="card">
+    <div class="card">
     <div class="card-body">
-        {!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'put']) !!}
+        <form action="{{ route('admin.tags.update', $tags) }}" method="POST">
+        @csrf
+        @method('put')
             <div class="form-group">
-                {!! Form::label('name', 'Name Category') !!}
-                {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Name Category']) !!}
+              <label for="exampleFormControlInput1">Name Tag</label>
+              <input type="text" class="form-control" id="name" name="name" value="{{ $tags->name }}">
                 @error('name')
                     <span class="text-danger">*{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group">
-                {!! Form::label('slug', 'Slug') !!}
-                {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Name Slug', 'readonly']) !!}
+              <label for="exampleFormControlInput1">Slug</label>
+              <input type="text" class="form-control" id="slug" name="slug" value="{{ $tags->slug }}" readonly>
                 @error('slug')
                     <span class="text-danger">*{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group">
-                {!! Form::submit('Edit Category', ['class' => 'btn btn-success btn-lg', 'style' => 'float: right;']) !!}
+              <label for="exampleFormControlInput1">Color</label>
+              <input type="text" class="form-control" id="color" name="color" value="{{ $tags->color }}">
+                @error('color')
+                    <span class="text-danger">*{{ $message }}</span>
+                @enderror
             </div>
-        {!! Form::close() !!}
+            <div class="form-group">
+                <button type="submit" class="btn btn-success float-right">Edit Tag</button>
+              </div>
+          </form>
     </div>
 </div>
 @stop
@@ -54,6 +62,4 @@
     </script>
 
 @endsection
-
-
 

@@ -3,7 +3,11 @@
 @section('title', 'Administrator')
 
 @section('content_header')
-    <h1>List Categories</h1>
+    <div class="container">
+        <a class="btn btn-primary btn-lg" style="float: right" href="{{ route('admin.categories.create') }}">Create Category</a>
+        <h1>List Categories</h1>
+        <br>
+    </div>
 @stop
 
 @section('content')
@@ -22,16 +26,16 @@
                     <table class="table table.striped">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Name</th>
+                                <th>Slug</th>
                                 <th colspan="2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($categories as $category)
                             <tr>
-                                <td>{{ $category->id }}</td>
                                 <td>{{ $category->name }}</td>
+                                <td>{{ $category->slug }}</td>
                                 <td>
                                     <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-success btn-lg"><i class="fas fa-edit"></i></a>
                                 </td>
@@ -46,9 +50,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div style="float: right" class="card-footer">
-                        <a class="btn btn-primary btn-lg" href="{{ route('admin.categories.create') }}">Create</a>
-                    </div>
                 </div>
             </div>
         </div>

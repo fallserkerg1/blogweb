@@ -1,7 +1,11 @@
 <?php $__env->startSection('title', 'Administrator'); ?>
 
 <?php $__env->startSection('content_header'); ?>
-    <h1>List Categories</h1>
+    <div class="container">
+        <a class="btn btn-primary btn-lg" style="float: right" href="<?php echo e(route('admin.categories.create')); ?>">Create Category</a>
+        <h1>List Categories</h1>
+        <br>
+    </div>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -20,16 +24,16 @@
                     <table class="table table.striped">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Name</th>
+                                <th>Slug</th>
                                 <th colspan="2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td><?php echo e($category->id); ?></td>
                                 <td><?php echo e($category->name); ?></td>
+                                <td><?php echo e($category->slug); ?></td>
                                 <td>
                                     <a href="<?php echo e(route('admin.categories.edit', $category)); ?>" class="btn btn-success btn-lg"><i class="fas fa-edit"></i></a>
                                 </td>
@@ -44,9 +48,6 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
-                    <div style="float: right" class="card-footer">
-                        <a class="btn btn-primary btn-lg" href="<?php echo e(route('admin.categories.create')); ?>">Create</a>
-                    </div>
                 </div>
             </div>
         </div>
