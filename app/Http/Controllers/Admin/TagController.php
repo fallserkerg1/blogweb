@@ -36,9 +36,18 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Tag $tag)
     {
-        //
+
+        $tag = new Tag();
+
+        $tag->name = $request->name;
+        $tag->slug = $request->slug;
+        $tag->color = $request->color;
+
+        $tag->save();
+
+        return redirect()->route('admin.tags.index', $tag)->with('info1', 'Create Success');
     }
 
     /**
@@ -58,9 +67,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tag $tag)
     {
-        //
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
@@ -70,9 +79,22 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tag $tag)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            'color' => 'required'
+        ]);
+
+        $tag->name = $request->name;
+        $tag->slug = $request->slug;
+        $tag->color = $request->color;
+
+
+        $tag->save();
+
+        return redirect()->route('admin.tags.edit', $tag)->with('info', 'Update Success');
     }
 
     /**
@@ -81,8 +103,10 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return redirect()->route('admin.tags.index', $tag)->with('info', 'Delete Success');
     }
 }

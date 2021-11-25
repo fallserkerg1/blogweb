@@ -103,7 +103,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form action="{{ route('admin.categories.store') }}" method="POST">
+            <form action="{{ route('admin.categories.store',) }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label>Name Category</label>

@@ -103,7 +103,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form action="<?php echo e(route('admin.categories.store')); ?>" method="POST">
+            <form action="<?php echo e(route('admin.categories.store',)); ?>" method="POST">
                 <?php echo csrf_field(); ?>
                 <div class="form-group">
                     <label>Name Category</label>

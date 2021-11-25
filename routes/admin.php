@@ -17,5 +17,9 @@ Route::put('/admin/categories/edit/{category}', [CategoryController::class, 'upd
 Route::delete('admin/categories/{category}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
 //Resource de Etiquetas
 Route::get('/admin/tags', [TagController::class, 'index'])->name('admin.tags.index');
+Route::post('/admin/tags/create', [TagController::class, 'store'])->name('admin.tags.store');
+Route::get('/admin/tags/edit/{tag}', [TagController::class, 'edit'])->name('admin.tags.edit');
+Route::put('/admin/tags/edit/{tag}', [TagController::class, 'update'])->name('admin.tags.update');
+Route::delete('admin/tags/{tag}', [TagController::class, 'destroy'])->name('admin.tags.destroy');
 
 

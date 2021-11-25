@@ -9,10 +9,31 @@
 @stop
 
 @section('content')
+
+@if(session('info'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ session('info') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+@endif
+
+@if(session('info1'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('info1') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+@endif
+
 <div class="container-fluid">
     <div class="container">
         <!-- Button trigger modal -->
-        <a href="" class="btn btn-primary" style="float: right; margin: 15px;">New Category</a>
+        <button type="button" class="btn btn-primary" style="float: right; margin: 15px;" data-toggle="modal" data-target="#modalForm">
+            Create Tag
+        </button>
 
         <table class="table">
             <thead class="thead-dark">
@@ -30,7 +51,7 @@
                 <td style="text-align: center">{{ $tags->slug }}</td>
                 <td style="text-align: center">{{ $tags->color }}</td>
                 <td style="text-align: center">
-                    <a href="" class="btn btn-success" style="margin: 5px"><i class="fas fa-edit"></i></a>
+                    <a href="{{ route('admin.tags.edit', $tags) }}" class="btn btn-success" style="margin: 5px"><i class="fas fa-edit"></i></a>
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -45,6 +66,80 @@
             </table>
     </div>
 </div>
+
+<!-- Modal  form-->
+<div class="modal fade" id="modalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Tag</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('admin.tags.store',) }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label>Name Tag</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name Tag">
+                    @error('name')
+                        <span style="color: red">*{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>Slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" placeholder="Name Slug" readonly>
+                    @error('name')
+                    <span style="color: red">*{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label>Color Tag</label>
+                    <select class="form-control" name="color">
+                      <option value="blue">Blue</option>
+                      <option value="red">Red</option>
+                      <option value="yellow">Yellow</option>
+                      <option value="violet">Violet</option>
+                      <option value="brown">Brown</option>
+                    </select>
+                  </div>
+                <button type="submit" class="btn btn-primary" style="float: right;">Create</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal Delete-->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Tag</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this Tag?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <form action="{{ route('admin.tags.destroy',$tags) }}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger">
+                    Delete
+                </button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
 @section('css')
@@ -52,5 +147,14 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="{{ asset('vendor\jQuery-Plugin-stringToSlug-1.3\jquery.stringToSlug.min.js') }}"></script>
+    <script>
+        $(document).ready( function() {
+            $("#name").stringToSlug({
+                setEvents: 'keyup keydown blur',
+                getPut: '#slug',
+                space: '-'
+            });
+        });
+    </script>
 @stop
