@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -15,9 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $dato = Category::all();
 
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact('dato'));
     }
 
     /**
@@ -36,16 +36,22 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Category $category)
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required|unique:categories'
+            'slug' => 'required'
         ]);
 
-        $category = Category::create($request->all());
+        $category = new Category();
 
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'Create Success');
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+
+        $category->save();
+
+        return redirect()->route('admin.categories.index', $category)->with('info1', 'Create Success');
+
     }
 
     /**
@@ -54,9 +60,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        return view('admin.categories.show', compact('category'));
+        //
     }
 
     /**
@@ -81,10 +87,13 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => "required|unique:categories,slug,$category->id"
+            'slug' => 'required'
         ]);
 
-        $category->update($request->all());
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+
+        $category->save();
 
         return redirect()->route('admin.categories.edit', $category)->with('info', 'Update Success');
     }

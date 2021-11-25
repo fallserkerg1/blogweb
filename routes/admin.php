@@ -1,26 +1,21 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
 //Resource de Categorias
-Route::resource('categories', CategoryController::class)->names('admin.categories');
-//Crud para Tags
-Route::get('tag', [TagController::class, 'index'])->name('admin.tags.index');
-Route::get('tag/create', [TagController::class, 'create'])->name('admin.tags.create');
-Route::post('tag', [TagController::class, 'store'])->name('admin.tags.store');
-Route::get('tag/{tags}', [TagController::class, 'edit'])->name('admin.tags.edit');
-Route::put('/tag/{employe}', [TagController::class, 'update'])->name('admin.tags.update');
-Route::delete('tag/{tags}', [TagController::class, 'destroy'])->name('admin.tags.delete');
-
-
-
-
-
-//Route::resource('tags', TagController::class)->names('admin.etiquetas');
+Route::get('/admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index');
+Route::get('/admin/categories/create', [CategoryController::class, 'create'])->name('admin.categories.create');
+Route::post('/admin/categories/create', [CategoryController::class, 'store'])->name('admin.categories.store');
+Route::get('/admin/categories/edit/{category}', [CategoryController::class, 'edit'])->name('admin.categories.edit');
+Route::put('/admin/categories/edit/{category}', [CategoryController::class, 'update'])->name('admin.categories.update');
+Route::delete('admin/categories/{category}', [CategoryController::class, 'destroy'])->name('admin.categories.destroy');
+//Resource de Etiquetas
+Route::get('/admin/tags', [TagController::class, 'index'])->name('admin.tags.index');
 
 

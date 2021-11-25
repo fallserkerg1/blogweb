@@ -7,10 +7,12 @@
 <?php $__env->startSection('content'); ?>
 
 <?php if(session('info')): ?>
-    <div class="alert alert-success">
-        <strong><?php echo e(session('info')); ?></strong>
-    </div>
-
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong><?php echo e(session('info')); ?></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 <?php endif; ?>
 
 <div class="card">
@@ -60,7 +62,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary float-right">Create Tag</button>
+                <button type="submit" class="btn btn-primary btn-lg float-right">Create Tag</button>
               </div>
           </form>
     </div>

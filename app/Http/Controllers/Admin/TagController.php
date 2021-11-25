@@ -27,7 +27,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('admin.tags.create');
+        //
     }
 
     /**
@@ -38,14 +38,7 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'slug' => 'required|unique:categories'
-        ]);
-
-        $dato = Tag::create($request->all());
-
-        return redirect()->route('admin.tags.index', $dato)->with('info', 'Create Success');
+        //
     }
 
     /**
@@ -65,9 +58,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tag $tags)
+    public function edit($id)
     {
-        return view('admin.tags.edit', compact('tags'));
+        //
     }
 
     /**
@@ -77,21 +70,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tags)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'slug' => "required|unique:categories,slug,$tags->id",
-            'color' => 'required',
-        ]);
-
-        $tags->name = $request->name;
-        $tags->slug = $request->slug;
-        $tags->color = $request->color;
-
-        $tags->save();
-
-        return redirect()->route('admin.tags.index', $tags)->with('info', 'Update Success');
+        //
     }
 
     /**
@@ -100,10 +81,8 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tag $tags)
+    public function destroy($id)
     {
-        $tags->delete();
-
-        return redirect()->route('admin.tags.index', $tags)->with('info', 'Delete Success');
+        //
     }
 }
