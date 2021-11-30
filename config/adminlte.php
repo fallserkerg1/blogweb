@@ -263,15 +263,23 @@ return [
             'icon' => 'fab fa-fw fas fa-tags',
         ],
         [
-            'text' => 'Posts',
-            'url'  => '#',
-            'icon' => 'fab fa-fw fas fa-plus-square',
-        ],
-        [
             'text' => 'Users',
             'url'  => '#',
             'icon' => 'fab fa-fw fas fa-users',
         ],
+
+        ['header' => 'OPCIONS BLOG'],
+        [
+            'text' => 'List Post',
+            'route'  => 'admin.posts.index',
+            'icon' => 'fas fa-fw fa-clipboard',
+        ],
+        [
+            'text' => 'New Post',
+            'route'  => 'admin.posts.create',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+
     ],
 
     /*
@@ -426,5 +434,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
