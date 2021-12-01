@@ -25,4 +25,6 @@ Route::delete('admin/tags/{tag}', [TagController::class, 'destroy'])->name('admi
 //Resource de Posts
 Route::get('/admin/posts', [PostController::class, 'index'])->name('admin.posts.index');
 Route::get('/admin/posts/create', [PostController::class, 'create'])->name('admin.posts.create');
+Route::post('/admin/posts/create', [PostController::class, 'store'])->name('admin.posts.store');
+Route::delete('admin/posts/{post}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
 

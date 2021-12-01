@@ -102,6 +102,7 @@
                       <option value="yellow">Yellow</option>
                       <option value="violet">Violet</option>
                       <option value="brown">Brown</option>
+                      <option value="green">Green</option>
                     </select>
                   </div>
                 <button type="submit" class="btn btn-primary" style="float: right;">Create</button>

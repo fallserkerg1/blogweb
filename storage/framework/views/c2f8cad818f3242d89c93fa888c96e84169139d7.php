@@ -10,7 +10,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th colspan="2"></th>
+                        <th colspan="2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,7 +18,7 @@
                         <tr>
                             <th><?php echo e($post->id); ?></th>
                             <th><?php echo e($post->name); ?></th>
-                            <td style="text-align: center">
+                            <th>
                                 <a href="#" class="btn btn-success" style="margin: 5px"><i class="fas fa-edit"></i></a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
@@ -27,7 +27,7 @@
                                         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                                     </svg>
                                 </button>
-                            </td>
+                            </th>
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
@@ -50,17 +50,17 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete this Category?
+                Are you sure you want to delete this Post?
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form action="#" method="POST">
+            <form action="<?php echo e(route('admin.posts.destroy', $post)); ?>" method="POST">
                 <?php echo csrf_field(); ?>
                 <?php echo method_field('delete'); ?>
                 <button type="submit" class="btn btn-danger">
