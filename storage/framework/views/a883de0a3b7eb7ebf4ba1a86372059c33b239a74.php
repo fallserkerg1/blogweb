@@ -14,10 +14,14 @@
             
             <div class="col-span-2">
                 <figure>
-                    <img class="w-full h-80 object-cover object-center" src="<?php echo e(Storage::url($post->image->url)); ?>" alt="">
+                    <?php if($post->image): ?>
+                        <img class="w-full h-80 object-cover object-center" src="<?php echo e(Storage::url($post->image->url)); ?>" alt="">
+                    <?php else: ?>
+                        <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
+                    <?php endif; ?>
                 </figure>
                 <div class="text-base text-gray-500 mt-4">
-                    <?php echo e($post->body); ?>
+                    <?php echo $post->body; ?>
 
                 </div>
             </div>
@@ -28,7 +32,11 @@
                     <?php $__currentLoopData = $similar; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="mb-4">
                             <a class="flex" href="<?php echo e(route('posts.show', $key)); ?>">
-                                <img class="w-36 h-20 object-cover object-center" src="<?php echo e(Storage::url($key->image->url)); ?>" alt="">
+                                <?php if($key->image): ?>
+                                    <img class="w-full h-80 object-cover object-center" src="<?php echo e(Storage::url($key->image->url)); ?>" alt="">
+                                <?php else: ?>
+                                    <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
+                                <?php endif; ?>
                                 <span class="ml-2 text-gray-600"><?php echo e($key->name); ?></span>
                             </a>
                         </li>

@@ -268,7 +268,7 @@ return [
             'icon' => 'fab fa-fw fas fa-users',
         ],
 
-        ['header' => 'OPCIONS BLOG'],
+        ['header' => 'OPTIONS BLOG'],
         [
             'text' => 'List Post',
             'route'  => 'admin.posts.index',

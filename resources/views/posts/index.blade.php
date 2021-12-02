@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($posts as $post)
-                <article class="w-full h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" style="background-image: url('{{ Storage::url($post->image->url) }}')">
+                <article class="w-full h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" style="background-image: url(@if($post->image) {{ Storage::url($post->image->url) }} @else https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg @endif)">
                     <div class="w-full h-full px-8 flex flex-col justify-center" style="padding: 15px; margin-top: 90px;">
                         <div>
                             @foreach($post->tags as $tag)

@@ -9,13 +9,17 @@
 <?php unset($__defined_vars); ?>
 
 <article class="mb-8 bg-white shadow-lg rounded-lg overflow-hidden" style="margin-bottom: 2rem">
-    <img class="w-full h-80 object-cover object-center" src="<?php echo e(Storage::url($post->image->url)); ?>" alt="">
+    <?php if($post->image): ?>
+        <img class="w-full h-80 object-cover object-center" src="<?php echo e(Storage::url($post->image->url)); ?>" alt="">
+    <?php else: ?>
+        <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
+    <?php endif; ?>
     <div class="px-6 py-4">
         <h1 class="font-bold text-xl mb-2">
             <a href="<?php echo e(route('posts.show', $post)); ?>"><?php echo e($post->name); ?></a>
         </h1>
         <div class="text-gray-700 text-base">
-            <?php echo e($post->extract); ?>
+            <?php echo $post->extract; ?>
 
         </div>
     </div>

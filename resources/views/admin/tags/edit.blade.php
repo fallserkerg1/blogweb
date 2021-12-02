@@ -48,6 +48,8 @@
                       <option value="yellow">Yellow</option>
                       <option value="violet">Violet</option>
                       <option value="brown">Brown</option>
+                      <option value="green">Green</option>
+                      <option value="orange">Orange</option>
                     </select>
                   </div>
                 <button type="submit" class="btn btn-success" style="float: right;">Edit</button>

@@ -8,10 +8,14 @@
             {{-- Contenido principal --}}
             <div class="col-span-2">
                 <figure>
-                    <img class="w-full h-80 object-cover object-center" src="{{ Storage::url($post->image->url) }}" alt="">
+                    @if($post->image)
+                        <img class="w-full h-80 object-cover object-center" src="{{ Storage::url($post->image->url) }}" alt="">
+                    @else
+                        <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
+                    @endif
                 </figure>
                 <div class="text-base text-gray-500 mt-4">
-                    {{ $post->body }}
+                    {!! $post->body !!}
                 </div>
             </div>
             {{-- Contenido relacionado --}}
@@ -21,7 +25,11 @@
                     @foreach($similar as $key)
                         <li class="mb-4">
                             <a class="flex" href="{{ route('posts.show', $key) }}">
-                                <img class="w-36 h-20 object-cover object-center" src="{{ Storage::url($key->image->url) }}" alt="">
+                                @if($key->image)
+                                    <img class="w-full h-80 object-cover object-center" src="{{ Storage::url($key->image->url) }}" alt="">
+                                @else
+                                    <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
+                                @endif
                                 <span class="ml-2 text-gray-600">{{ $key->name }}</span>
                             </a>
                         </li>

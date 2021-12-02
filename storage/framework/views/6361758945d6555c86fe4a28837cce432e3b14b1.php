@@ -7,7 +7,7 @@
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <article class="w-full h-80 bg-cover bg-center <?php if($loop->first): ?> md:col-span-2 <?php endif; ?>" style="background-image: url('<?php echo e(Storage::url($post->image->url)); ?>')">
+                <article class="w-full h-80 bg-cover bg-center <?php if($loop->first): ?> md:col-span-2 <?php endif; ?>" style="background-image: url(<?php if($post->image): ?> <?php echo e(Storage::url($post->image->url)); ?> <?php else: ?> https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg <?php endif; ?>)">
                     <div class="w-full h-full px-8 flex flex-col justify-center" style="padding: 15px; margin-top: 90px;">
                         <div>
                             <?php $__currentLoopData = $post->tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
