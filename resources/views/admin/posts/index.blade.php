@@ -3,8 +3,8 @@
 @section('title', 'Administrator')
 
 @section('content_header')
-    <div class="container">
-        <a href="{{ route('admin.posts.create') }}" class="btn btn-primary" style="float: right;">New Post</a>
+    <div>
+        <a href="{{ route('admin.posts.create') }}" class="btn btn-primary btn-lg" style="float: right;">New Post</a>
     </div>
     <h1>List Post</h1>
     <br>

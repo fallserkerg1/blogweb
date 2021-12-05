@@ -19,7 +19,7 @@
                             <th><?php echo e($post->id); ?></th>
                             <th><?php echo e($post->name); ?></th>
                             <th>
-                                <a href="#" class="btn btn-success" style="margin: 5px"><i class="fas fa-edit"></i></a>
+                                <a href="<?php echo e(route('admin.posts.edit', $post)); ?>" class="btn btn-success" style="margin: 5px"><i class="fas fa-edit"></i></a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">

@@ -23,9 +23,12 @@ Route::get('/admin/tags/edit/{tag}', [TagController::class, 'edit'])->name('admi
 Route::put('/admin/tags/edit/{tag}', [TagController::class, 'update'])->name('admin.tags.update');
 Route::delete('admin/tags/{tag}', [TagController::class, 'destroy'])->name('admin.tags.destroy');
 //Resource de Posts
+
 Route::get('/admin/posts', [PostController::class, 'index'])->name('admin.posts.index');
 Route::get('/admin/posts/create', [PostController::class, 'create'])->name('admin.posts.create');
 Route::post('/admin/posts/create', [PostController::class, 'store'])->name('admin.posts.store');
 Route::get('/admin/posts/edit/{post}', [PostController::class, 'edit'])->name('admin.posts.edit');
-Route::delete('admin/posts/{post}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
+Route::put('/admin/posts/edit/{post}', [PostController::class, 'update'])->name('admin.posts.update');
+Route::delete('admin/posts/delete/{post}', [PostController::class, 'destroy'])->name('admin.posts.destroy');
+
 

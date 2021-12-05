@@ -1,8 +1,8 @@
 <?php $__env->startSection('title', 'Administrator'); ?>
 
 <?php $__env->startSection('content_header'); ?>
-    <div class="container">
-        <a href="<?php echo e(route('admin.posts.create')); ?>" class="btn btn-primary" style="float: right;">New Post</a>
+    <div>
+        <a href="<?php echo e(route('admin.posts.create')); ?>" class="btn btn-primary btn-lg" style="float: right;">New Post</a>
     </div>
     <h1>List Post</h1>
     <br>
@@ -24,15 +24,15 @@
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('admin.post-index')->html();
-} elseif ($_instance->childHasBeenRendered('1w6hRC3')) {
-    $componentId = $_instance->getRenderedChildComponentId('1w6hRC3');
-    $componentTag = $_instance->getRenderedChildComponentTagName('1w6hRC3');
+} elseif ($_instance->childHasBeenRendered('3MbxOsQ')) {
+    $componentId = $_instance->getRenderedChildComponentId('3MbxOsQ');
+    $componentTag = $_instance->getRenderedChildComponentTagName('3MbxOsQ');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('1w6hRC3');
+    $_instance->preserveRenderedChild('3MbxOsQ');
 } else {
     $response = \Livewire\Livewire::mount('admin.post-index');
     $html = $response->html();
-    $_instance->logRenderedChild('1w6hRC3', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('3MbxOsQ', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

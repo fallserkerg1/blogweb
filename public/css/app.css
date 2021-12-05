@@ -1212,6 +1212,9 @@ select {
 .h-12 {
 	height: 3rem;
 }
+.h-2 {
+    height: 0.5rem;
+}
 .h-6 {
 	height: 1.5rem;
 }
@@ -1229,6 +1232,9 @@ select {
 }
 .h-20 {
 	height: 5rem;
+}
+.h-24 {
+    height: 6rem;
 }
 .h-80	{
     height: 20rem;
@@ -1268,6 +1274,9 @@ select {
 }
 .w-4 {
 	width: 1rem;
+}
+.w-40	{
+    width: 10rem;
 }
 .w-60 {
 	width: 15rem;
@@ -1385,6 +1394,9 @@ select {
 }
 .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.col-span-1	{
+    grid-column: span 1 / span 1;
 }
 .col-span-2	{
     grid-column: span 2 / span 2;

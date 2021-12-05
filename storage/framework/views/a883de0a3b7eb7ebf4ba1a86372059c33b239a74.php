@@ -33,9 +33,9 @@
                         <li class="mb-4">
                             <a class="flex" href="<?php echo e(route('posts.show', $key)); ?>">
                                 <?php if($key->image): ?>
-                                    <img class="w-full h-80 object-cover object-center" src="<?php echo e(Storage::url($key->image->url)); ?>" alt="">
+                                    <img class="h-30 w-40 object-cover object-center" src="<?php echo e(Storage::url($key->image->url)); ?>" alt="">
                                 <?php else: ?>
-                                    <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
+                                    <img class="h-30 w-40 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
                                 <?php endif; ?>
                                 <span class="ml-2 text-gray-600"><?php echo e($key->name); ?></span>
                             </a>

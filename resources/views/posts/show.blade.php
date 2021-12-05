@@ -26,9 +26,9 @@
                         <li class="mb-4">
                             <a class="flex" href="{{ route('posts.show', $key) }}">
                                 @if($key->image)
-                                    <img class="w-full h-80 object-cover object-center" src="{{ Storage::url($key->image->url) }}" alt="">
+                                    <img class="h-30 w-40 object-cover object-center" src="{{ Storage::url($key->image->url) }}" alt="">
                                 @else
-                                    <img class="w-full h-80 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
+                                    <img class="h-30 w-40 object-cover object-center" src="https://cdn.pixabay.com/photo/2019/02/25/00/17/kitten-4018756_960_720.jpg" alt="">
                                 @endif
                                 <span class="ml-2 text-gray-600">{{ $key->name }}</span>
                             </a>
