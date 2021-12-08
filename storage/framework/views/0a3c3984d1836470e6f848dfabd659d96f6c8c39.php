@@ -45,14 +45,11 @@
             $("#name").stringToSlug({
                 setEvents: 'keyup keydown blur',
                 getPut: '#slug',
-                space: '-'
+                space: '-',
             });
         });
     </script>
     <script>
-
-    CKEDITOR.config.height = 400;
-    CKEDITOR.config.width = 'auto';
 
     CKEDITOR.replace('body');
 

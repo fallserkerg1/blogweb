@@ -238,10 +238,6 @@ return [
 
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
@@ -250,22 +246,25 @@ return [
             'text'        => 'Dashboard',
             'route'       => 'admin.index',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
+            'can'         => 'admin.index',
         ],
-        ['header' => 'ADMINISTRADOR'],
+        [
+            'text' => 'Users',
+            'route'  => 'admin.users.index',
+            'icon' => 'fab fa-fw fas fa-users',
+            'can'  => 'admin.users.index',
+        ],
         [
             'text' => 'Categories',
             'route'  => 'admin.categories.index',
             'icon' => 'fab fa-fw fa-buffer',
+            'can'  => 'admin.categories.index',
         ],
         [
             'text' => 'Tags',
             'route'  => 'admin.tags.index',
             'icon' => 'fab fa-fw fas fa-tags',
-        ],
-        [
-            'text' => 'Users',
-            'url'  => '#',
-            'icon' => 'fab fa-fw fas fa-users',
+            'can'  => 'admin.tags.index',
         ],
 
         ['header' => 'OPTIONS BLOG'],
@@ -273,11 +272,13 @@ return [
             'text' => 'List Post',
             'route'  => 'admin.posts.index',
             'icon' => 'fas fa-fw fa-clipboard',
+            'can'  => 'admin.posts.index',
         ],
         [
             'text' => 'New Post',
             'route'  => 'admin.posts.create',
             'icon' => 'fas fa-fw fa-file',
+            'can'  => 'admin.posts.create',
         ],
 
     ],

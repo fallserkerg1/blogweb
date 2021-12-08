@@ -65,9 +65,6 @@
     </script>
     <script>
 
-    CKEDITOR.config.height = 400;
-    CKEDITOR.config.width = 'auto';
-
     CKEDITOR.replace('body');
 
     //Codigo JS de las imagenes
